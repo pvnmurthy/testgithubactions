@@ -25,7 +25,8 @@ jobs:
           jfrog-url: 'http://localhost:8081/'
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
-      - run: |
+      - name: docker login command
+        run: |
           docker login http://localhost:8081/ \
           -u ${{ secrets.JF_USER }} \
           -p ${{ secrets.JF_PASSWORD }}
