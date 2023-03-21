@@ -3,8 +3,8 @@ name: Build and Publish Docker Images to JFrog
 on: workflow_dispatch
       
 env:
-  DOCKER_IMAGE_NAME: "myimage"
-  DOCKER_IMAGE_TAG: "latest"      
+  DOCKER_IMAGE_NAME: myimage
+  DOCKER_IMAGE_TAG: latest
 
 jobs:
   build:
@@ -29,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: localhost:8081/{{ env.DOCKER_IMAGE_NAME }}:latest
+          tags: localhost:8081/{{ env.DOCKER_IMAGE_NAME }}:{{ env.DOCKER_IMAGE_TAG }}
