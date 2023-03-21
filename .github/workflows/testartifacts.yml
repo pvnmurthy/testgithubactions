@@ -17,12 +17,12 @@ jobs:
       - name: Build and tag Docker image
         run: |
           docker build -t ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
-          docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG arkoartifact.jfrog.io/artifactory/docker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG localhost:8081/example-repo-local/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
           
       - name: Login to JFrog Docker registry
         uses: jfrog/setup-jfrog-cli@v1
         with:
-          jfrog-url: 'https://arkoartifact.jfrog.io/'
+          jfrog-url: 'http://localhost:8081/'
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - run: |
@@ -32,4 +32,4 @@ jobs:
           
       - name: Push Docker image to JFrog registry
         run: |
-          docker push arkoartifact.jfrog.io/artifactory/docker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          docker push localhost:8081/example-repo-local/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
