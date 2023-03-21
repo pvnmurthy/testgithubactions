@@ -27,7 +27,7 @@ jobs:
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - name: docker login command
         run: |
-          docker login http://localhost:8081/ \
+          docker login localhost:8081/ \
           -u ${{ secrets.JF_USER }} \
           -p ${{ secrets.JF_PASSWORD }} \
           docker push localhost:8081/example-repo-local/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
