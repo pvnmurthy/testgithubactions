@@ -23,14 +23,12 @@ jobs:
       - name: Login to JFrog Docker registry
         uses: jfrog/setup-jfrog-cli@v1
         with:
-          jfrog-url: 'http://10.130.17.119:8081/'
+          jfrog-url: 'http://10.130.17.119:8082/'
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - run: |
-          docker login 10.130.17.119:8081/ \
-          -u ${{ secrets.JF_USER }} \
-          -p ${{ secrets.JF_PASSWORD }}
+          docker login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
           
       - name: Push Docker image to JFrog registry
         run: |
-          docker push 10.130.17.119:8082/artifactory/api/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          docker push 10.130.17.119:8082/artifactory/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
