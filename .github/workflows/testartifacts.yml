@@ -18,7 +18,7 @@ jobs:
       - name: Build and tag Docker image
         run: |
           docker build -t ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
-          docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG 10.130.17.119:8082/artifactory/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG 10.130.17.119:8082/artifactory/docker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
           
       - name: Login to JFrog Docker registry
         uses: jfrog/setup-jfrog-cli@v1
@@ -31,4 +31,4 @@ jobs:
           
       - name: Push Docker image to JFrog registry
         run: |
-          docker push 10.130.17.119:8082/artifactory/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          docker push 10.130.17.119:8082/artifactory/docker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
