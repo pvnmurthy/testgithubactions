@@ -27,7 +27,7 @@ jobs:
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - run: |
-          docker login 10.130.17.119:8082/ \
+          docker login 10.130.17.119:8081/ \
           -u ${{ secrets.JF_USER }} \
           -p ${{ secrets.JF_PASSWORD }}
           
