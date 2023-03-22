@@ -20,7 +20,7 @@ jobs:
       - name: Login to JFrog 🐸  
         uses: docker/login-action@v2
         with:
-          registry: VDUS1DEVWIN1040.corp.ukg.COM:8081
+          registry: 10.130.17.119:8081
           username: ${{ secrets.JF_USER }}
           password: ${{ secrets.JF_PASSWORD }}
 
@@ -29,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: VDUS1DEVWIN1040.corp.ukg.COM:8082/artifactory/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          tags: 10.130.17.119:8082/artifactory/testdocker/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
