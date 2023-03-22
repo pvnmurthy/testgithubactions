@@ -28,7 +28,7 @@ jobs:
           jfrog-password: ${{ secrets.JF_PASSWORD }}
      
       - run: |
-          docker --insecure-registry login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
+          docker --tlsverify=false login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
           
       - name: Push Docker image to JFrog registry
         run: |
