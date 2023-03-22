@@ -23,7 +23,7 @@ jobs:
       - name: Login to JFrog Docker registry
         uses: jfrog/setup-jfrog-cli@v1
         with:
-          jfrog-url: 'http://10.130.17.119:8082/'
+          jfrog-url: 'http://10.130.17.119:8081/'
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - run: |
