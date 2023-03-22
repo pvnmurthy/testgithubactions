@@ -27,6 +27,12 @@ jobs:
           jfrog-username: ${{ secrets.JF_USER }}
           jfrog-password: ${{ secrets.JF_PASSWORD }}
       - run: |
+          cat > /etc/docker/daemon.json <<DOCKERCONFIG
+          {
+             "insecure-registries": ["http://10.130.17.119:8082"]
+          }
+          DOCKERCONFIG
+      - run: |
           docker login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
           
       - name: Push Docker image to JFrog registry
