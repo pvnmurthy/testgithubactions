@@ -33,7 +33,7 @@ jobs:
           }
           DOCKERCONFIG
       - run: |
-          docker login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
+          docker --insecure-registry login 10.130.17.119:8082 -u ${{ secrets.JF_USER }} -p ${{ secrets.JF_PASSWORD }}
           
       - name: Push Docker image to JFrog registry
         run: |
