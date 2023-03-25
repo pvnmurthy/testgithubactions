@@ -32,7 +32,7 @@ jobs:
       
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color -input=false
+        run: terraform plan -no-color -input=false -out terraform-plan.tfplan -var "os_password=%os_password%" -var "os_username=%os_username%" -var "os_auth_url=%os_auth_url%"
         working-directory: ./terraform
         
       - name: Terraform Plan Status
