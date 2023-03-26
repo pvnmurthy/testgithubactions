@@ -1,3 +1,4 @@
+name: test for github actions inputs
 on: 
   workflow_dispatch:
     inputs:
