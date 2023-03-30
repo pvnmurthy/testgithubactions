@@ -8,7 +8,7 @@ jobs:
     environment:  DEV
     env:
       MY_VAR:  ${{ vars.MY_VAR}}
-      MY_SECRET: ${{ secret.OS_PASSWORD }}
+      MY_SECRET: ${{ secrets.OS_PASSWORD }}
     
     steps:
       - name: echo variables
