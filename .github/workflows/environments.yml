@@ -1,0 +1,19 @@
+name: environment specific vars
+on:
+  workflow_dispatch
+
+jobs:
+  job-dev:
+    runs-on: ubuntu-latest
+    environment:  DEV
+    env:
+      MY_VAR:  {{ vars.MY_VAR}}
+      MY_SECRET: {{ secret.MY_SECRET }}
+    
+    steps:
+      - name: echo variables
+        run: |
+          echo "MY_VAR value is $MY_VAR"
+          echo "MY_SECRET is $MY_SECRET"
+      
+    
