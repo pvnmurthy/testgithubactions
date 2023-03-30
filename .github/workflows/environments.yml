@@ -15,5 +15,17 @@ jobs:
         run: |
           echo "MY_VAR value is $MY_VAR"
           echo "MY_SECRET is $MY_SECRET"
+  job-staging:
+    runs-on: ubuntu-latest
+    environment:  STAGING
+    env:
+      MY_VAR:  ${{ vars.MY_VAR}}
+      MY_SECRET: ${{ secrets.OS_PASSWORD }}
+    
+    steps:
+      - name: echo variables
+        run: |
+          echo "MY_VAR value is $MY_VAR"
+          echo "MY_SECRET is $MY_SECRET"
       
     
