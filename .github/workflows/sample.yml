@@ -1,0 +1,31 @@
+name: Sample
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: ubuntu-latest
+
+    env:
+      config_param1: UKG
+      configparam2: TAX
+      test_var: florida
+
+    steps:
+    - name: echo HelloWorld
+      run: |
+        echo "Hello World $config_param1 $configparam2"
+
+    - name: Echo environment vars
+      run: |
+        echo "Environment Variable $test_var"
